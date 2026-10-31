@@ -17,7 +17,7 @@ void main(){vec2 c=vec2(gl_FragCoord.x,${H}.*d-gl_FragCoord.y)/d;vec3 o=vec3(0.)
 for(int i=0;i<2;i++){if(float(i)>=n)break;vec2 a=f[i].xy;float R=f[i].z,ang=f[i].w;vec2 p=c-a;float r=length(p);float th=atan(p.y,p.x)-ang;
 float hw=(i==0?HA0:HA1);if(abs(th)>hw||r>R)continue;float u=r/R;
 vec2 g2=floor(gl_FragCoord.xy);float b=bayer(g2);float dd=r/50.;float wv=sin(pow(dd,1.7)*7.-6.*t)*.5+.5;
-float e=smoothstep(hw,hw-.04,abs(th));float on=step(b,wv*.92+.04)*e;float v=on*(.3+.58*wv+.1*pow(wv,8.));
+float e=smoothstep(hw,hw-.04,abs(th));float on=step(b,wv*.92+.04)*e;float v=on*(.28+.47*wv+.05*pow(wv,10.));
 vec3 col=texture2D(lut,vec2(clamp(v,0.,.995),.5)).rgb;o=max(o,col);al=1.;}
 gl_FragColor=vec4(o,al);}`
 for(const v of Object.keys(shapes)){const el=document.getElementById(v),c=document.createElement('canvas'),d=Math.min(2,devicePixelRatio||1);c.width=W*d;c.height=H*d;el.append(c)
